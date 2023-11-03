@@ -1,12 +1,25 @@
+import AddProduct from "./addProduct";
+import DeleteProduct from "./deleteProduct";
+import UpdateProduct from "./updateProduct";
+
+export const metadata = {
+  title: "Product List",
+};
+
 async function getProducts() {
-  const res = await fetch("http://localhost:5000/products");
+  const res = await fetch("http://localhost:5000/products", {
+    cache: "no-store",
+  });
   return res.json();
 }
 
-async function ProductList() {
+export default async function ProductList() {
   const products = await getProducts();
   return (
     <div className="py-10 px-10">
+      <div className="py-2">
+        <AddProduct />
+      </div>
       <table className="table w-full ">
         <thead className="bg-slate-200">
           <tr>
@@ -22,6 +35,10 @@ async function ProductList() {
               <td>{product.id}</td>
               <td>{product.title}</td>
               <td>Rp. {product.price}</td>
+              <td className="flex">
+                <UpdateProduct {...product} />
+                <DeleteProduct {...product} />
+              </td>
             </tr>
           ))}
         </tbody>
@@ -29,5 +46,3 @@ async function ProductList() {
     </div>
   );
 }
-
-export default ProductList;
