@@ -2,6 +2,10 @@ import React from "react";
 import BlogDetail from "../BlogDetail";
 import Link from "next/link";
 
+export const metadata = {
+  title: "Blog Detail",
+};
+
 async function getBlog(endpoint) {
   const res = await fetch(`https://gorest.co.in/public/v2/posts/${endpoint}`);
   return res.json();
