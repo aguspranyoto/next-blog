@@ -7,8 +7,13 @@ export const metadata = {
 };
 
 async function getUsers() {
+  const token =
+    "2246e9a16b2a3cb4466331924f48a414a728437443c01cb219d8479848e139aa";
   const res = await fetch(`https://gorest.co.in/public/v2/users`, {
     cache: "no-store",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
   });
   return res.json();
 }

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 export default function DeleteUser(user) {
+  const [IdUser, setIdUser] = useState(user.id);
   const [modal, setModal] = useState(false);
   const [isMutating, setIsMutating] = useState(false);
 
@@ -15,9 +16,13 @@ export default function DeleteUser(user) {
 
   async function handleDelete(userId) {
     setIsMutating(true);
-
-    await fetch(`http://localhost:5000/users/${userId}`, {
+    const token =
+      "2246e9a16b2a3cb4466331924f48a414a728437443c01cb219d8479848e139aa";
+    await fetch(`https://gorest.co.in/public/v2/users/${userId}`, {
       method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
     });
     setIsMutating(false);
 
@@ -39,7 +44,7 @@ export default function DeleteUser(user) {
       <div className="modal">
         <div className="modal-box">
           <h3 className="font-bold text-lg">
-            Are you sure to delete {user.title}?
+            Are you sure to delete {IdUser} - {user.name}?
           </h3>
           <div className="modal-action">
             <button className="btn" type="button" onClick={handleChange}>
@@ -48,7 +53,9 @@ export default function DeleteUser(user) {
             {!isMutating ? (
               <button
                 type="button"
-                onClick={() => handleDelete(user.id)}
+                onClick={() => {
+                  handleDelete(user.id);
+                }}
                 className="btn btn-primary"
               >
                 Delete

@@ -8,7 +8,6 @@ export default function AddUser() {
   const [email, setEmail] = useState("");
   const [gender, setGender] = useState("");
   const [status, setStatus] = useState("");
-  console.log(name, email, gender, status);
   const [modal, setModal] = useState(false);
   const [isMutating, setIsMutating] = useState(false);
 
@@ -21,14 +20,15 @@ export default function AddUser() {
   async function handleSubmit(e) {
     e.preventDefault();
     setIsMutating(true);
+    const token =
+      "2246e9a16b2a3cb4466331924f48a414a728437443c01cb219d8479848e139aa";
 
     await fetch("https://gorest.co.in/public/v2/users", {
       method: "POST",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
-        Authorization:
-          "Bearer 2246e9a16b2a3cb4466331924f48a414a728437443c01cb219d8479848e139aa",
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({
         name: name,
@@ -37,6 +37,7 @@ export default function AddUser() {
         status: status,
       }),
     });
+
     setIsMutating(false);
 
     setName("");
