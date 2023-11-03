@@ -4,8 +4,6 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 export default function UpdateUser(user) {
-  // const idUser = user.id ;
-  // console.log(idUser);
   const [IdUser, setIdUser] = useState(user.id);
   const [name, setName] = useState(user.name);
   const [email, setEmail] = useState(user.email);
@@ -43,7 +41,11 @@ export default function UpdateUser(user) {
       }),
     });
     setIsMutating(false);
-
+    setName("");
+    setEmail("");
+    setGender("");
+    setStatus("");
+    setIdUser("");
     router.refresh();
     setModal(false);
   }

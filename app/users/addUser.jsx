@@ -6,8 +6,8 @@ import { useRouter } from "next/navigation";
 export default function AddUser() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [gender, setGender] = useState("");
-  const [status, setStatus] = useState("");
+  const [gender, setGender] = useState("male");
+  const [status, setStatus] = useState("active");
 
   const [modal, setModal] = useState(false);
   const [isMutating, setIsMutating] = useState(false);
@@ -52,7 +52,7 @@ export default function AddUser() {
 
   return (
     <div>
-      <button className="btn btn-primary" onClick={handleChange}>
+      <button className="btn btn-sm btn-primary" onClick={handleChange}>
         Add new
       </button>
       <input
@@ -92,7 +92,9 @@ export default function AddUser() {
                 value={gender}
                 onChange={(e) => setGender(e.target.value)}
               >
-                <option value="male">Male</option>
+                <option defaultValue={"male"} value="male">
+                  Male
+                </option>
                 <option value="female">Female</option>
               </select>
             </div>
@@ -103,7 +105,9 @@ export default function AddUser() {
                 value={status}
                 onChange={(e) => setStatus(e.target.value)}
               >
-                <option value="active">active</option>
+                <option defaultValue={"active"} value="active">
+                  active
+                </option>
                 <option value="inactive">inactive</option>
               </select>
             </div>

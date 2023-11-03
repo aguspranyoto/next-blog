@@ -2,18 +2,18 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 
-const PaginationControls = ({ hasNextPage, hasPrevPage, location }) => {
+const PaginationControls = ({ hasNextPage, hasPrevPage, locPag }) => {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const loc = location;
+  const loc = locPag;
 
   const page = searchParams.get("page") ?? "1";
   const per_page = searchParams.get("per_page") ?? "3";
 
   return (
-    <div className="flex gap-2">
+    <div className="flex container mx-auto w-full justify-center sm:px-5 my-5 items-center gap-3">
       <button
-        className="bg-blue-500 text-white p-1"
+        className=" text-white p-2 btn btn-primary btn-sm"
         disabled={!hasPrevPage}
         onClick={() => {
           router.push(
@@ -26,12 +26,12 @@ const PaginationControls = ({ hasNextPage, hasPrevPage, location }) => {
         prev page
       </button>
 
-      <div>
-        {page} / {Math.ceil(10 / Number(per_page))}
+      <div className="flex ">
+        <div>{page}</div> / <div>{Math.ceil(10 / Number(per_page))}</div>
       </div>
 
       <button
-        className="bg-blue-500 text-white p-1"
+        className=" text-white p-2 btn btn-primary btn-sm"
         disabled={!hasNextPage}
         onClick={() => {
           router.push(

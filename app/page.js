@@ -1,6 +1,7 @@
 import Link from "next/link";
 import BlogDetail from "./blogs/BlogDetail";
 import PaginationControls from "./blogs/PaginationControls";
+import InputSearch from "./blogs/inputSearch";
 
 export const metadata = {
   title: "Post List",
@@ -17,17 +18,28 @@ async function PostList({ searchParams }) {
   const posts = await getPosts();
   const page = searchParams["page"] ?? "1";
   const per_page = searchParams["per_page"] ?? "3";
+  const search = searchParams["search"] ?? "";
 
-  // mocked, skipped and limited in the real app
-  const start = (Number(page) - 1) * Number(per_page); // 0, 5, 10 ...
-  const end = start + Number(per_page); // 5, 10, 15 ...
+  const start = (Number(page) - 1) * Number(per_page);
+  const end = start + Number(per_page);
 
-  const post = posts.slice(start, end);
+  const filteredArray = posts.filter((value) =>
+    value.title.toLowerCase().includes(search)
+  );
+  const post = filteredArray.slice(start, end);
+
   return (
     <div className="container mx-auto md:px-20">
       <h1 className="font-bold mt-8 text-4xl  text-center">Blog list</h1>
       <div className="flex w-full mx-auto items-center justify-center text-center ">
         <div className="container mx-auto w-full justify-center sm:px-5 my-5">
+          <div className="flex items-center">
+            <InputSearch locInput={""} />
+            <PaginationControls
+              hasNextPage={end < posts.length}
+              hasPrevPage={start > 0}
+            />
+          </div>
           {post.map((value, index) => (
             <div
               className="w-full mb-5 lg:pl-2 lg:pr-2 text-center "
@@ -36,10 +48,6 @@ async function PostList({ searchParams }) {
               <BlogDetail {...value} />
             </div>
           ))}
-          <PaginationControls
-            hasNextPage={end < posts.length}
-            hasPrevPage={start > 0}
-          />
         </div>
       </div>
     </div>

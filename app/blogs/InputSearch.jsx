@@ -4,30 +4,35 @@ import { useRouter } from "next/navigation";
 import Router from "next/router";
 import React, { useEffect } from "react";
 import { useState } from "react";
+import { useDebounce } from "use-debounce";
 
-export default function InputSearch() {
+export default function InputSearch({ locInput }) {
   const router = useRouter();
   const [text, setText] = useState("");
-
+  const [query] = useDebounce(text, 1000);
+  const loc = locInput;
   const handleChange = (e) => {
     setText(e.target.value);
   };
 
   useEffect(() => {
-    router.push(`blogs?search=${text}`);
-  }, [text, router]);
-
-  // // search filter function
-  // const searchFilter = (array) => {
-  //   return array.filter((el) => el.name.common.toLowerCase().includes(Text));
-  // };
-
-  //Applying our search filter function to our array of countries recieved from the API
-  // const filtered = searchFilter(users);
+    if (query && loc.length > 0) {
+      router.push(`/${loc}?search=${query}`);
+    }
+    // router.push(`/${loc}?search=${query}`);
+    // } else {
+    //   router.push(`/${loc.length > 0 && loc}?search=${query}`);
+    // }
+  }, [router, loc, query]);
 
   return (
     <>
-      <input type="text" placeholder="search.." onChange={handleChange} />
+      <input
+        className="input w-full max-w-xs input-bordered"
+        type="text"
+        placeholder="search.."
+        onChange={handleChange}
+      />
     </>
   );
 }
