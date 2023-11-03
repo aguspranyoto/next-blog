@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 export default function DeleteProduct(product) {
+  console.log(product);
   const [modal, setModal] = useState(false);
   const [isMutating, setIsMutating] = useState(false);
 
