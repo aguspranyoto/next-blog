@@ -3,9 +3,9 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-export default function UpdateProduct(product) {
-  const [title, setTitle] = useState(product.title);
-  const [price, setPrice] = useState(product.price);
+export default function UpdateUser(user) {
+  const [title, setTitle] = useState(user.title);
+  const [price, setPrice] = useState(user.price);
   const [modal, setModal] = useState(false);
   const [isMutating, setIsMutating] = useState(false);
 
@@ -19,7 +19,7 @@ export default function UpdateProduct(product) {
     e.preventDefault();
     setIsMutating(true);
 
-    await fetch(`http://localhost:5000/products/${product.id}`, {
+    await fetch(`http://localhost:5000/users/${user.id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -48,7 +48,7 @@ export default function UpdateProduct(product) {
       />
       <div className="modal">
         <div className="modal-box">
-          <h3 className="font-bold text-lg">Edit {product.title}</h3>
+          <h3 className="font-bold text-lg">Edit {user.title}</h3>
           <form onSubmit={handleUpdate}>
             <div className="form-control">
               <label className="label font-bold">Title</label>
@@ -57,7 +57,7 @@ export default function UpdateProduct(product) {
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 className="input w-full input-bordered"
-                placeholder="Product name"
+                placeholder="user name"
               />
             </div>
             <div className="form-control">

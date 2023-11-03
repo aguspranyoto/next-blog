@@ -3,8 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-export default function DeleteProduct(product) {
-  console.log(product);
+export default function DeleteUser(user) {
   const [modal, setModal] = useState(false);
   const [isMutating, setIsMutating] = useState(false);
 
@@ -14,10 +13,10 @@ export default function DeleteProduct(product) {
     setModal(!modal);
   }
 
-  async function handleDelete(productId) {
+  async function handleDelete(userId) {
     setIsMutating(true);
 
-    await fetch(`http://localhost:5000/products/${productId}`, {
+    await fetch(`http://localhost:5000/users/${userId}`, {
       method: "DELETE",
     });
     setIsMutating(false);
@@ -40,7 +39,7 @@ export default function DeleteProduct(product) {
       <div className="modal">
         <div className="modal-box">
           <h3 className="font-bold text-lg">
-            Are you sure to delete {product.title}?
+            Are you sure to delete {user.title}?
           </h3>
           <div className="modal-action">
             <button className="btn" type="button" onClick={handleChange}>
@@ -49,7 +48,7 @@ export default function DeleteProduct(product) {
             {!isMutating ? (
               <button
                 type="button"
-                onClick={() => handleDelete(product.id)}
+                onClick={() => handleDelete(user.id)}
                 className="btn btn-primary"
               >
                 Delete

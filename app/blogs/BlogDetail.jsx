@@ -3,10 +3,6 @@
 import Link from "next/link";
 import { useState } from "react";
 
-export const metadata = {
-  title: "Blog Detail",
-};
-
 export default function BlogDetail(post) {
   const [id, setId] = useState(post.id);
   const [title, setTitle] = useState(post.title);
