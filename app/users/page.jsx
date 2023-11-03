@@ -22,14 +22,14 @@ export default async function UserList() {
   const users = await getUsers();
 
   return (
-    <div className="pb-10 px-10">
+    <div className="pb-10 px-10 w-3/4 mx-auto">
       <h1 className="font-bold mt-8 text-4xl  text-center">User list</h1>
       <div className="py-2 mb-2">
         <AddUser />
       </div>
       <div className="card w-100% bg-base-100 shadow-xl">
-        <div className="card-body">
-          <table className="table w-full table-auto">
+        <div className="card-body relative overflow-x-auto">
+          <table className="table w-full p-4">
             <thead className="bg-slate-200">
               <tr>
                 <th className="text-xl">Name</th>

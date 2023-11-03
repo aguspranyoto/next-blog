@@ -20,7 +20,6 @@ function Header() {
           w-full
           p-10
           md:py-0
-          
           text-lg text-gray-700
           bg-white
         "
@@ -67,7 +66,7 @@ function Header() {
             <li>
               <Link
                 href={"/"}
-                className="md:p-4 py-2 block hover:text-purple-400 text-md"
+                className="md:p-4 py-2 block hover:text-[#358e92] text-xl font-bold"
               >
                 Home
               </Link>
@@ -75,7 +74,7 @@ function Header() {
             <li>
               <Link
                 href={"/users"}
-                className="md:p-4 py-2 block hover:text-purple-400 text-md"
+                className="md:p-4 py-2 block hover:text-[#358e92] text-xl font-bold"
               >
                 User
               </Link>

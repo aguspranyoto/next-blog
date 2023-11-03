@@ -8,6 +8,7 @@ export default function AddUser() {
   const [email, setEmail] = useState("");
   const [gender, setGender] = useState("");
   const [status, setStatus] = useState("");
+
   const [modal, setModal] = useState(false);
   const [isMutating, setIsMutating] = useState(false);
 
@@ -51,7 +52,7 @@ export default function AddUser() {
 
   return (
     <div>
-      <button className="btn" onClick={handleChange}>
+      <button className="btn btn-primary" onClick={handleChange}>
         Add new
       </button>
       <input
