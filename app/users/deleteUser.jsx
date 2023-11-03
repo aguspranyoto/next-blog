@@ -44,7 +44,7 @@ export default function DeleteUser(user) {
       <div className="modal">
         <div className="modal-box">
           <h3 className="font-bold text-lg">
-            Are you sure to delete {IdUser} - {user.name}?
+            are you sure you want to delete {user.name}?
           </h3>
           <div className="modal-action">
             <button className="btn" type="button" onClick={handleChange}>
@@ -56,7 +56,7 @@ export default function DeleteUser(user) {
                 onClick={() => {
                   handleDelete(user.id);
                 }}
-                className="btn btn-primary"
+                className="btn btn-error"
               >
                 Delete
               </button>

@@ -1,4 +1,7 @@
 import "./globals.css";
+import Link from "next/link";
+import Footer from "./layout/footer";
+import Header from "./layout/header";
 
 export const metadata = {
   title: "Home",
@@ -8,7 +11,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" data-theme="cupcake">
-      <body>{children}</body>
+      <body>
+        <Header />
+        <main>{children}</main>
+        <Footer />
+      </body>
     </html>
   );
 }

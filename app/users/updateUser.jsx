@@ -61,7 +61,7 @@ export default function UpdateUser(user) {
       />
       <div className="modal">
         <div className="modal-box">
-          <h3 className="font-bold text-lg">Edit {user.title}</h3>
+          <h3 className="font-bold text-lg">Edit {IdUser}</h3>
           <form onSubmit={handleUpdate}>
             <div className="form-control">
               <label className="label font-bold">Name</label>

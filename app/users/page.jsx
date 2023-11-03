@@ -22,37 +22,40 @@ export default async function UserList() {
   const users = await getUsers();
 
   return (
-    <div className="py-10 px-10">
-      <div className="py-2">
+    <div className="pb-10 px-10">
+      <h1 className="font-bold mt-8 text-4xl  text-center">User list</h1>
+      <div className="py-2 mb-2">
         <AddUser />
       </div>
-      <table className="table w-full ">
-        <thead className="bg-slate-200">
-          <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Gender</th>
-            <th>Status</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {users.map((user, index) => (
-            <tr key={index}>
-              <td>{user.id}</td>
-              <td>{user.name}</td>
-              <td>{user.email}</td>
-              <td>{user.gender}</td>
-              <td>{user.status}</td>
-              <td className="flex">
-                <UpdateUser {...user} />
-                <DeleteUser {...user} />
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <div className="card w-100% bg-base-100 shadow-xl">
+        <div className="card-body">
+          <table className="table w-full table-auto">
+            <thead className="bg-slate-200">
+              <tr>
+                <th className="text-xl">Name</th>
+                <th className="text-xl">Email</th>
+                <th className="text-xl">Gender</th>
+                <th className="text-xl">Status</th>
+                <th className="text-xl">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {users.map((user, index) => (
+                <tr key={index}>
+                  <td className="text-xl">{user.name}</td>
+                  <td className="text-xl">{user.email}</td>
+                  <td className="text-xl">{user.gender}</td>
+                  <td className="text-xl">{user.status}</td>
+                  <td className="flex">
+                    <UpdateUser {...user} />
+                    <DeleteUser {...user} />
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   );
 }
