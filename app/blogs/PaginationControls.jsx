@@ -6,7 +6,6 @@ const PaginationControls = ({ hasNextPage, hasPrevPage, location }) => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const loc = location;
-  console.log(loc);
 
   const page = searchParams.get("page") ?? "1";
   const per_page = searchParams.get("per_page") ?? "3";

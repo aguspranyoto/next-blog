@@ -1,7 +1,7 @@
 // ======= INI FILE BUAT BELAJAR SAJA
 // ======= http://localhost:3002/blogs
 // ======= halaman blogs hanya untuk belajar
-
+import InputSearch from "./InputSearch";
 import PaginationControls from "./PaginationControls";
 
 async function getPosts() {
@@ -30,6 +30,7 @@ async function getUsers() {
 export default async function Home({ searchParams }) {
   const users = await getUsers();
   const posts = await getPosts();
+  const search = searchParams["search"] ?? "";
   const page = searchParams["page"] ?? "1";
   const per_page = searchParams["per_page"] ?? "3";
 
@@ -37,11 +38,19 @@ export default async function Home({ searchParams }) {
   const start = (Number(page) - 1) * Number(per_page); // 0, 5, 10 ...
   const end = start + Number(per_page); // 5, 10, 15 ...
 
-  const user = users.slice(start, end);
-  const post = posts.slice(start, end);
+  //Our search filter function
+
+  const filteredArray = users.filter(
+    (value) =>
+      value.name.toLowerCase().includes(search) ||
+      value.email.toLowerCase().includes(search)
+  );
+  const user = filteredArray.slice(start, end);
+  // const post = posts.slice(start, end);
 
   return (
     <div className="flex flex-col gap-2 items-center">
+      <InputSearch />
       <table className="table w-full p-4">
         <thead className="bg-slate-200">
           <tr>
@@ -70,11 +79,12 @@ export default async function Home({ searchParams }) {
       <PaginationControls
         hasNextPage={end < users.length}
         hasPrevPage={start > 0}
+        location={"blogs/"}
       />
 
       <hr />
 
-      <div>
+      {/* <div>
         {post.map((value, index) => (
           <p key={index}>{value.title}</p>
         ))}
@@ -82,7 +92,7 @@ export default async function Home({ searchParams }) {
       <PaginationControls
         hasNextPage={end < posts.length}
         hasPrevPage={start > 0}
-      />
+      /> */}
     </div>
   );
 }
