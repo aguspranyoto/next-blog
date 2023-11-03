@@ -3,26 +3,24 @@
 import Link from "next/link";
 import { useState } from "react";
 
-export default function BlogDetail(post) {
-  const [id, setId] = useState(post.id);
-  const [title, setTitle] = useState(post.title);
-  const [body, setBody] = useState(post.body);
-  const [userId, setUserId] = useState(post.userId);
-
-  // const posts = await getPosts();
+export default function BlogDetail(value) {
+  const [id, setId] = useState(value.id);
+  const [title, setTitle] = useState(value.title);
+  const [body, setBody] = useState(value.body);
+  const [userId, setUserId] = useState(value.userId);
 
   return (
     <div className="card card-normal w-100% bg-base-100 shadow-xl ">
       <div className="card-body">
-        <Link href={`/blogs/${post.id}`}>
-          <h2 className="card-title truncate">{post.title}</h2>
+        <Link href={`/blogs/${value.id}`}>
+          <h2 className="card-title truncate">{value.title}</h2>
         </Link>
-        <Link href={`/blogs/${post.id}`}>
-          <p className="truncate">{post.body}</p>
+        <Link href={`/blogs/${value.id}`}>
+          <p className="truncate">{value.body}</p>
         </Link>
         <div className="card-actions justify-end">
           <Link
-            href={`/blogs/${post.id}`}
+            href={`/blogs/${value.id}`}
             type="button"
             className="btn btn-primary btn-sm"
           >

@@ -1,6 +1,7 @@
 import AddUser from "./addUser";
 import DeleteUser from "./deleteUser";
 import UpdateUser from "./updateUser";
+import PaginationControls from "../blogs/PaginationControls";
 
 export const metadata = {
   title: "User List",
@@ -18,9 +19,16 @@ async function getUsers() {
   return res.json();
 }
 
-export default async function UserList() {
+export default async function UserList({ searchParams }) {
   const users = await getUsers();
+  const page = searchParams["page"] ?? "1";
+  const per_page = searchParams["per_page"] ?? "3";
 
+  // mocked, skipped and limited in the real app
+  const start = (Number(page) - 1) * Number(per_page); // 0, 5, 10 ...
+  const end = start + Number(per_page); // 5, 10, 15 ...
+
+  const user = users.slice(start, end);
   return (
     <div className="pb-10 px-10 w-3/4 mx-auto">
       <h1 className="font-bold mt-8 text-4xl  text-center">User list</h1>
@@ -40,7 +48,7 @@ export default async function UserList() {
               </tr>
             </thead>
             <tbody>
-              {users.map((user, index) => (
+              {user.map((user, index) => (
                 <tr key={index}>
                   <td className="text-xl">{user.name}</td>
                   <td className="text-xl">{user.email}</td>
@@ -56,6 +64,11 @@ export default async function UserList() {
           </table>
         </div>
       </div>
+      <PaginationControls
+        hasNextPage={end < users.length}
+        hasPrevPage={start > 0}
+        location={"users/"}
+      />
     </div>
   );
 }
