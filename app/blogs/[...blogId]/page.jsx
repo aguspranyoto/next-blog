@@ -14,9 +14,9 @@ export default async function Blog({ params }) {
   return (
     <div className="w-3/4 mx-auto items-center justify-center h-screen">
       <h1 className="font-bold mt-8 text-4xl  text-center">Blog detail</h1>
-      <div className="container mx-auto px-20 my-5">
+      <div className="container mx-auto my-5">
         <div className="w-full mb-5 lg:pl-2 lg:pr-2">
-          <div className="card w-100% bg-base-100 shadow-xl">
+          <div className="card card-normal w-100% bg-base-100 shadow-xl">
             <div className="card-body">
               <h2 className="card-title font-bold text-4xl">{posts.title}</h2>
               <p className="text-xl">{posts.body}</p>

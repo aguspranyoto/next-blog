@@ -27,7 +27,7 @@ export default async function UserList() {
       <div className="py-2 mb-2">
         <AddUser />
       </div>
-      <div className="card w-100% bg-base-100 shadow-xl">
+      <div className="card card-normal w-100% bg-base-100 shadow-xl">
         <div className="card-body relative overflow-x-auto">
           <table className="table w-full p-4">
             <thead className="bg-slate-200">

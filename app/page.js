@@ -19,7 +19,7 @@ async function PostList() {
     <div className="container mx-auto md:px-20">
       <h1 className="font-bold mt-8 text-4xl  text-center">Blog list</h1>
       <div className="flex w-full mx-auto items-center justify-center text-center ">
-        <div className="container mx-auto w-full justify-center px-20 my-5">
+        <div className="container mx-auto w-full justify-center sm:px-5 my-5">
           {posts.map((post, index) => (
             <div
               className="w-full mb-5 lg:pl-2 lg:pr-2 text-center "

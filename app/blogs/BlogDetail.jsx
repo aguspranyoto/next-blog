@@ -12,7 +12,7 @@ export default function BlogDetail(post) {
   // const posts = await getPosts();
 
   return (
-    <div className="card w-100% bg-base-100 shadow-xl">
+    <div className="card card-normal w-100% bg-base-100 shadow-xl ">
       <div className="card-body">
         <Link href={`/blogs/${post.id}`}>
           <h2 className="card-title truncate">{post.title}</h2>
