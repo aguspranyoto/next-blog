@@ -1,6 +1,7 @@
-# CRUD Next.JS Blog Website dengan API https://gorest.co.in/
+# CRUD Next.JS Blog Website with API from https://gorest.co.in/
+Demo: https://next-blog-inky-zeta.vercel.app/
 
-Cara menjalankan project:
+How to run the project:
 
 1. Make sure you have installed node.js and npm (this project was created using node.js version v20.9.0 and npm version 10.1.0)
    
