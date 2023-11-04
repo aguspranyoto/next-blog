@@ -1,4 +1,5 @@
 # CRUD Next.JS Blog Website with API from https://gorest.co.in/
+
 Demo: https://next-blog-inky-zeta.vercel.app/
 
 How to run the project:
@@ -7,7 +8,7 @@ How to run the project:
    
 2. Run the command below in the terminal
 ```bash
-git clone https://github.com/aguspranyoto/country-search-api.git
+https://github.com/aguspranyoto/next-blog.git
 ```
 
 3. Run the command below to move to next-blog directory
