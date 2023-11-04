@@ -1,7 +1,7 @@
 import Link from "next/link";
 import BlogDetail from "./blogs/BlogDetail";
 import PaginationControls from "./blogs/PaginationControls";
-import InputSearch from "./blogs/inputSearch";
+import InputSearch from "./blogs/InputSearch";
 
 export const metadata = {
   title: "Post List",

@@ -2,7 +2,7 @@ import AddUser from "./addUser";
 import DeleteUser from "./deleteUser";
 import UpdateUser from "./updateUser";
 import PaginationControls from "../blogs/PaginationControls";
-import InputSearch from "../blogs/inputSearch";
+import InputSearch from "../blogs/InputSearch";
 
 export const metadata = {
   title: "User List",
