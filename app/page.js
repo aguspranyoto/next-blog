@@ -16,7 +16,6 @@ async function getPosts() {
 
 async function PostList({ searchParams }) {
   const posts = await getPosts();
-  console.log(posts);
   const page = searchParams["page"] ?? "1";
   const per_page = searchParams["per_page"] ?? "3";
   const search = searchParams["search"] ?? "";

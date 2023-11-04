@@ -10,10 +10,8 @@ export default function Comment({ data, endpoint }) {
   //   const [name, setName] = useState(value.name);
   //   const [body, setBody] = useState(value.body);
   const params = endpoint;
-  console.log(params);
   const comments = data;
   const filteredArray = comments.filter((value) => value.post_id == params);
-  console.log(filteredArray);
   return (
     <div className="">
       <hr className="mt-8" />

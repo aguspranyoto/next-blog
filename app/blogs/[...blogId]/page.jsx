@@ -21,9 +21,9 @@ async function getComments() {
 export default async function Blog({ params }) {
   const comments = await getComments();
   const endpoint = params.blogId;
-  console.log(endpoint);
+
   const posts = await getBlog(endpoint);
-  console.log(posts);
+
   return (
     <div className="w-3/4 mx-auto items-center justify-center h-screen">
       <h1 className="font-bold mt-8 text-4xl  text-center">Blog detail</h1>
