@@ -22,6 +22,7 @@ async function getUsers() {
 
 export default async function UserList({ searchParams }) {
   const users = await getUsers();
+
   const page = searchParams["page"] ?? "1";
   const per_page = searchParams["per_page"] ?? "3";
   const search = searchParams["search"] ?? "";

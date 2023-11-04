@@ -3,12 +3,11 @@
 import Link from "next/link";
 import { useState } from "react";
 
-export default function BlogDetail(value) {
+export default function BlogDetail(value, data) {
   const [id, setId] = useState(value.id);
   const [title, setTitle] = useState(value.title);
   const [body, setBody] = useState(value.body);
   const [userId, setUserId] = useState(value.userId);
-
   return (
     <div className="card card-normal w-100% bg-base-100 shadow-xl ">
       <div className="card-body">
