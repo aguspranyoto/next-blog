@@ -52,7 +52,10 @@ export default function AddUser() {
 
   return (
     <div>
-      <button className="btn btn-sm btn-primary" onClick={handleChange}>
+      <button
+        className="btn btn-sm btn-primary text-white"
+        onClick={handleChange}
+      >
         Add new
       </button>
       <input
@@ -63,7 +66,7 @@ export default function AddUser() {
       />
       <div className="modal">
         <div className="modal-box">
-          <h3 className="font-bold text-lg">Add new user</h3>
+          <h3 className="font-bold text-lg ">Add new user</h3>
           <form onSubmit={handleSubmit}>
             <div className="form-control">
               <label className="label font-bold">Name</label>
@@ -71,7 +74,7 @@ export default function AddUser() {
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="input w-full input-bordered"
+                className="input w-full input-bordered xs:py-0"
                 placeholder="user name"
               />
             </div>

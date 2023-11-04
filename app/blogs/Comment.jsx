@@ -14,12 +14,12 @@ export default function Comment({ data, endpoint }) {
   const filteredArray = comments.filter((value) => value.post_id == params);
   return (
     <div className="">
-      <hr className="mt-8" />
-
       {filteredArray.map((item, index) => (
         <div className="flex justify-start gap-5 items-center" key={index}>
-          <div>
+          <hr className="mt-8" />
+          <div className="">
             <Image
+              className="xs:hidden sm:block"
               width={40}
               height={40}
               src={

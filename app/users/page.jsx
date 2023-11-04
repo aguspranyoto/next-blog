@@ -40,13 +40,13 @@ export default async function UserList({ searchParams }) {
   const user = filteredArray.slice(start, end);
 
   return (
-    <div className="pb-10 px-10 w-3/4 mx-auto">
+    <div className="sm:w-3/4 pb-10 px-10 mx-auto xs:w-full">
       <h1 className="font-bold mt-8 text-4xl  text-center">User list</h1>
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center xs:flex-col md:flex-row">
         <div className="py-2 ">
           <AddUser />
         </div>
-        <div className="flex items-center">
+        <div className="flex items-center xs:flex-col md:flex-row">
           <InputSearch locInput={"users"} />
           <PaginationControls
             hasNextPage={end < users.length}

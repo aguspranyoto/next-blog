@@ -29,11 +29,11 @@ async function PostList({ searchParams }) {
   const post = filteredArray.slice(start, end);
 
   return (
-    <div className="container mx-auto md:px-20">
+    <div className="container mx-auto sm:px-10 xs:px-10">
       <h1 className="font-bold mt-8 text-4xl  text-center">Blog list</h1>
       <div className="flex w-full mx-auto items-center justify-center text-center ">
-        <div className="container mx-auto w-full justify-center sm:px-5 my-5">
-          <div className="flex items-center">
+        <div className="container mx-auto w-full justify-center my-5">
+          <div className="flex items-center xs:flex-col md:flex-row">
             <InputSearch locInput={""} />
             <PaginationControls
               hasNextPage={end < posts.length}
@@ -42,7 +42,7 @@ async function PostList({ searchParams }) {
           </div>
           {post.map((value, index) => (
             <div
-              className="w-full mb-5 lg:pl-2 lg:pr-2 text-center "
+              className="w-full mb-5 sm:px-2 lg:pl-2 lg:pr-2 text-center "
               key={index}
             >
               <BlogDetail {...value} />

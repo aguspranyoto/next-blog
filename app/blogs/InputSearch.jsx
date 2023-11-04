@@ -29,7 +29,7 @@ export default function InputSearch({ locInput }) {
   return (
     <>
       <input
-        className="input w-full max-w-xs input-bordered"
+        className="input w-full max-w-xs xs:input-sm md:input-md input-bordered"
         type="text"
         placeholder="search.."
         onChange={handleChange}

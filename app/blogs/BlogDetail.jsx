@@ -9,7 +9,7 @@ export default function BlogDetail(value, data) {
   const [body, setBody] = useState(value.body);
   const [userId, setUserId] = useState(value.userId);
   return (
-    <div className="card card-normal w-100% bg-base-100 shadow-xl ">
+    <div className="card w-100% bg-base-100 shadow-xl ">
       <div className="card-body">
         <Link href={`/blogs/${value.id}`}>
           <h2 className="card-title truncate">{value.title}</h2>
