@@ -25,7 +25,7 @@ export default async function Blog({ params }) {
   const posts = await getBlog(endpoint);
 
   return (
-    <div className="w-3/4 mx-auto items-center justify-center h-screen">
+    <div className="w-3/4 mx-auto items-center justify-center">
       <h1 className="font-bold mt-8 text-4xl  text-center">Blog detail</h1>
       <div className="container mx-auto my-5">
         <div className="w-full mb-5 lg:pl-2 lg:pr-2">
